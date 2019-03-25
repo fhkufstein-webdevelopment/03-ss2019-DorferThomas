@@ -34,9 +34,6 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
         that.check();
     };
 
-
-
-
     //TODO implement the other events in the exact same way!
     
     //aufgabe 1:

@@ -8,6 +8,10 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
     this.minLength = 8; //this is what we defined and what we need to consider in our length check
 
     //this attributes are set with our constructor
+
+
+
+    //AUFGABE4:  $ anstatt "document.getElementByID"
     this.wrapperField = $(wrapperId);
     this.passwordField = $(passwordInputFieldId);
     this.passwordSubmitButton = $(passwordSubmitButtonId);
@@ -21,6 +25,10 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
     //if we are in the password field an enter text - JavaScript Method "onkeyup" or "onkeup" - again in our case the field this.passwordField
     //if we try to click the submit button - JavaScript Method "onclick" - in our case this.passwordSubmitButton
 
+
+
+
+    //AUFGABE4: bei den Check functions bleibt das "on" und "="
     this.passwordField.blur(function() {
         //the keyword "this" is always referring to its context.
         //onblur is an event which happens in "passwordField" -> so the keyword "this" would refer to the passwordField NOT to our class
@@ -48,6 +56,11 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
         if(this.wrapperField && this.passwordField && this.passwordSubmitButton) {
             var longEnough = this.checkForLength();
             var hasSpecialChars = this.checkForSpecialCharacters();
+
+
+
+            //AUFGABE5: hier ist alles etwas unübersichtlicher geschrieben. ;)
+
 
             //if it is long enough and has a special character - everything is fine
             if(longEnough && hasSpecialChars) {
