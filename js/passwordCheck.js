@@ -16,10 +16,15 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
     var that = this; //a trick because this is a keyword and means different things in a new context! Especially when you work with events or if you call functions outside your class "this" won't mean you!
 
     //TODO start
+
     //now for the events which should fire:
+    //aufgabe1:
     //if we leave the password field (focus is lost) - JavaScript Method "onblur" for an input field in our case the field this.passwordField
+    //aufgabe2:
     //if we enter the password field (focus is set) - JavaScript Method "onfocus" for an input field - again in our case the field this.passwordField
+    //aufgabe3:
     //if we are in the password field an enter text - JavaScript Method "onkeyup" or "onkeup" - again in our case the field this.passwordField
+    //aufgabe4:
     //if we try to click the submit button - JavaScript Method "onclick" - in our case this.passwordSubmitButton
 
     this.passwordField.onblur = function() {
@@ -29,11 +34,25 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
         that.check();
     };
 
+
+
+
     //TODO implement the other events in the exact same way!
+    
+    //aufgabe 1:
+    this.passwordField.onfocus = function () {
 
-
-
-
+        that.check();
+    };
+    //aufgabe 2:
+    this.passwordField.onkeyup = function () {
+        that.check();
+    };
+    //aufgabe 3:
+    this.passwordSubmitButton.onclick = function () {
+        that.check();
+    };
+    
     //TODO end
 
     this.check = function() {
@@ -71,7 +90,11 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
     this.checkForLength = function() {
         //@todo
         //have a look at javascript string methods and properties
-        return true; //this needs to be replaced!
+        if (this.passwordField.value.length>=this.minLength)
+        {
+            return true;
+        }
+         //this needs to be replaced!
     };
 
     /*
@@ -79,9 +102,17 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
      */
     this.checkForSpecialCharacters = function() {
         //@todo
+
+        var format = /[!§$_.:,;]/;
+        var rückgabewert = false;
+
+        if( format.test(this.passwordField.value)){
+            rückgabewert = true;
+        }
+        return rückgabewert;
         //have a look at javascript string methods and properties
         //you could probably "match" it somehow
-        return true; //this needs to be replaced!
+         //this needs to be replaced!
     };
 }
 
